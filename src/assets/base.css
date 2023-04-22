@@ -49,3 +49,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+span{
+  color: #FFC700;
+}
+.uppercase {
+  text-transform: uppercase;
+}
