@@ -79,19 +79,3 @@
   margin-bottom: 5px;
 }
 </style>
-<style>
-.buttonMain {
-  width: 189px;
-  height: 41px;
-  background: radial-gradient(50% 50% at 50% 50%, #FFC700 0%, #FFC700 100%);
-  border-radius: 20px;
-  margin-bottom: 22px;
-}
-.buttonMainText {
-  font-family: 'Merriweather';
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: 0.1em;
-  color: #0D0C11;
-}
-</style>
