@@ -1,20 +1,14 @@
 <script setup lang="ts">
 import Hero from '../components/Hero.vue';
 import Quote from '../components/Quote.vue';
+import InfoText from '../components/InfoText.vue';
 </script>
 
 <template>
   <main>
     <Hero/>
     <Quote/>
-    <div class="infoTest">
-      <p>Также по результатам теста
-  вы получите подробные советы по определению наиболее перспективной для вашего типа интеллекта сферы деятельности, 
-  которая принесет вам скорейший финансовый результат.
-    </p>
-    <img/>
-    <button> пойти тест</button>
-    </div>
+    <InfoText/>
     <div class="infoTestMore">
 <p>Прохождение теста займет у вас не более 12 минут, а его результаты вы сможете использовать всю жизнь. 
   </p>
