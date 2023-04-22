@@ -12,7 +12,6 @@
   background: url('../components/icons/image.png');
   background-size: cover;
   background-repeat: no-repeat;
-  /* text-align: center; */
 }
 .quoteText{
   text-align: center;
