@@ -1,43 +1,42 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import { ref, computed } from 'vue';
-const showMenu = ref(true);
-const headerClass = computed(()=>(
-  {
-    'header': showMenu.value,
-    "headerTwo": !showMenu.value
-  }
-))
-const navBarClass = computed(() => (
-  {
-    'navBar': showMenu.value,
-    "navBarTwo": !showMenu.value
-  }
-))
-const menuButtonClass = computed(()=>(
-  {
-    'menuButton': showMenu.value,
-    "menuButtonTwo": !showMenu.value
-  }
-))
-function changeHeaderStyle(){
-  showMenu.value=!showMenu.value
+import { RouterLink, RouterView } from "vue-router";
+import { ref, computed } from "vue";
+const showMenu = ref(false);
+const headerClass = computed(() => ({
+  header: showMenu.value,
+  headerTwo: !showMenu.value,
+}));
+const navBarClass = computed(() => ({
+  navBar: showMenu.value,
+  navBarTwo: !showMenu.value,
+}));
+const menuButtonClass = computed(() => ({
+  menuButton: showMenu.value,
+  menuButtonTwo: !showMenu.value,
+}));
+function changeHeaderStyle() {
+  showMenu.value = !showMenu.value;
 }
-
 </script>
 
 <template>
   <header :class="headerClass">
     <div :class="menuButtonClass">
       <button @click="changeHeaderStyle">
-        <img v-if="showMenu" src="@/components/icons/icon-5.png" alt="close" class="close"/>
-        <img v-else src="@/components/icons/menu.png" alt="menu" class="menu"/>
-      </button></div>
-      <nav :class="navBarClass">
-        <RouterLink to="/" class="navLink">Главная</RouterLink>
-        <RouterLink to="/about" class="navLink">Информация о тесте</RouterLink>
-        <RouterLink to="/test" class="navLink">пройти тест</RouterLink>
-      </nav>
+        <img
+          v-if="showMenu"
+          src="@/components/icons/icon-5.png"
+          alt="close"
+          class="close"
+        />
+        <img v-else src="@/components/icons/menu.png" alt="menu" class="menu" />
+      </button>
+    </div>
+    <nav :class="navBarClass">
+      <RouterLink to="/" class="navLink">Главная</RouterLink>
+      <RouterLink to="/about" class="navLink">Информация о тесте</RouterLink>
+      <RouterLink to="/test" class="navLink">пройти тест</RouterLink>
+    </nav>
   </header>
   <RouterView />
 </template>
@@ -50,23 +49,23 @@ function changeHeaderStyle(){
   display: block;
   flex-direction: column;
 }
-.headerTwo{
+.headerTwo {
   height: 46px;
   background: #181818;
 }
-.menuButton{
+.menuButton {
   display: flex;
   justify-content: end;
 }
-.menuButtonTwo{
+.menuButtonTwo {
   justify-content: start;
 }
-.menu{
+.menu {
   width: 24px;
   margin-left: 13px;
   margin-top: 13px;
 }
-.close{
+.close {
   margin-top: 13px;
   margin-right: 13px;
   width: 28px;
@@ -86,15 +85,14 @@ function changeHeaderStyle(){
 .navBarTwo {
   display: none;
 }
-.navLink{
+.navLink {
   color: white;
   padding-bottom: 27px;
 }
-.navLink:hover{
-  color: #F4CE0C;
+.navLink:hover {
+  color: #f4ce0c;
 }
 nav a.router-link-exact-active {
-  color: #F4CE0C;
+  color: #f4ce0c;
 }
-
 </style>

@@ -1,12 +1,10 @@
-<script>
-</script>
 <template>
-      <div class="hero">
-        <h2 class="heroTitle uppercase">Пройдите точный и быстрый</h2>
-        <h1 class="heroTitleMain uppercase"><span>тест на <br> определение IQ   </span></h1>
-        <img src="../components/icons/rain_bk3.png" class="brain" alt="brain"/>
-        <button class="buttonMain"> <p class="buttonMainText uppercase">ПРойти тест</p></button>
-        <p class="heroText uppercase"><span>и получите рекомендации 
+  <div class="hero">
+    <h2 class="heroTitle uppercase">Пройдите точный и быстрый</h2>
+    <h1 class="heroTitleMain uppercase"><span>тест на <br> определение IQ   </span></h1>
+    <img src="../components/icons/rain_bk3.png" class="brain" alt="brain"/>
+    <button class="buttonMain"> <p class="buttonMainText uppercase">ПРойти тест</p></button>
+    <p class="heroText uppercase"><span>и получите рекомендации 
     по развитию своего интеллекта </span>
     <br>
     и улучшению финансового благосостояния и личной жизни</p>
