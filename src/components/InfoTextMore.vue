@@ -5,7 +5,7 @@
     <p class="infoTextBlock">
       Профессиональная интерпретация и детально <b>проработанные рекомендации </b>позволят вам качественно <b>изменить все аспекты своей жизни:</b> от финансового до любовного.
     </p>
-    <button class="buttonMain infoButton"> <p class="buttonMainText infoButtonText uppercase">пойти тест</p></button>
+    <button class="buttonMain infoButton"> <p class="buttonMainText infoButtonText uppercase">пpойти тест</p></button>
     <p class="bottomText"> &#169; 2019</p>
   </div>
 

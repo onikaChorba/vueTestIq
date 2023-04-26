@@ -6,7 +6,7 @@
     которая принесет вам скорейший финансовый результат.
       </p>
       <img src="../components/icons/325-01.png" alt="brain" class="infoImg"/>
-      <button class="buttonMain infoButton"><p class="buttonMainText uppercase">пойти тест</p></button>
+      <button class="buttonMain infoButton"><p class="buttonMainText uppercase">пpойти тест</p></button>
       </div>
 </template>
 <style scoped>
