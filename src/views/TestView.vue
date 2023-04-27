@@ -30,7 +30,7 @@ console.log(questions);
 </script>
 <template>
   <div class="test">
-    <form>
+    <form @submit.prevent>
       <h2 class="question">{{ currentQuestion.question }}</h2>
       <div
         v-for="(answer, index) in currentQuestion.options"
