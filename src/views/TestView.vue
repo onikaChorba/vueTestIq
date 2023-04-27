@@ -24,14 +24,6 @@ export default {
       }
     },
   },
-  // methods: {
-  //   nextQuestion() {
-  //     this.currentQuestion++;
-  //   },
-  //   previousQuestion() {
-  //     this.currentQuestion--;
-  //   },
-  // },
 };
 
 console.log(questions);
@@ -55,24 +47,6 @@ console.log(questions);
         <label :for="index">{{ answer.text }}</label>
       </div>
       <button @click="nextQuestion" class="testButton">Далі</button>
-      <!-- <div v-for="question in questions" :key="question.id">
-        <p class="question">{{ currentQuestion.question }}</p>
-        <label
-          v-for="(option, index) in currentQuestion.options"
-          :key="question.options.id"
-          class="answer"
-        >
-          <input
-            type="radio"
-            :value="option.id"
-            :id="currentQuestion.options.id"
-            :name="'option' + question.id"
-            v-model="selectedAnswer"
-          />
-          {{ option.text }}
-        </label>
-        <button @click="nextQuestion" class="testButton">Далі</button>
-      </div> -->
     </form>
   </div>
 </template>
