@@ -1,7 +1,55 @@
-<template>
-  <div class="test"></div>
-</template>
+<script>
+import questions from "../questions.js";
 
+export default {
+  data() {
+    return {
+      questions: questions,
+      currentQuestionIndex: 0,
+      selectedAnswer: "",
+    };
+  },
+  computed: {
+    currentQuestion() {
+      return this.questions[this.currentQuestionIndex];
+    },
+  },
+  methods: {
+    nextQuestion() {
+      if (this.selectedAnswer) {
+        this.currentQuestionIndex++;
+        this.selectedAnswer = "";
+      } else {
+        alert("Будь ласка, оберіть відповідь!");
+      }
+    },
+  },
+};
+
+console.log(questions);
+</script>
+<template>
+  <div class="test">
+    <form>
+      <h2 class="question">{{ currentQuestion.question }}</h2>
+      <div
+        v-for="(answer, index) in currentQuestion.options"
+        :key="index"
+        class="answer"
+      >
+        <input
+          type="radio"
+          :id="index"
+          :name="'answer' + currentQuestion.id"
+          :value="answer"
+          v-model="selectedAnswer"
+        />
+        <label :for="index">{{ answer.text }}</label>
+      </div>
+      <button @click="nextQuestion" class="testButton">Далі</button>
+    </form>
+  </div>
+</template>
 <style>
 .test {
   min-height: 100vh;
