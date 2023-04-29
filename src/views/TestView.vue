@@ -32,10 +32,19 @@ console.log(questions);
   <div class="test">
     <form @submit.prevent>
       <h2 class="question">{{ currentQuestion.question }}</h2>
-      <div
+      <div class="testImg">
+        <img
+          v-if="currentQuestion.imgSrc"
+          :src="currentQuestion.imgSrc"
+          alt="image"
+        />
+        <div v-else></div>
+      </div>
+      <label
         v-for="(answer, index) in currentQuestion.options"
         :key="index"
         class="answer"
+        :class="{ selected: selectedAnswer === answer }"
       >
         <input
           type="radio"
@@ -44,9 +53,18 @@ console.log(questions);
           :value="answer"
           v-model="selectedAnswer"
         />
-        <label :for="index">{{ answer.text }}</label>
-      </div>
-      <button @click="nextQuestion" class="testButton">Далі</button>
+        {{ answer.text }}</label
+      >
+      <button
+        @click="nextQuestion"
+        class="testButton uppercase"
+        :class="{
+          'grey-button': !selectedAnswer,
+          'orange-button': selectedAnswer,
+        }"
+      >
+        Далі
+      </button>
     </form>
   </div>
 </template>
@@ -62,28 +80,57 @@ console.log(questions);
 }
 .question {
   text-align: center;
-  padding-bottom: 38px;
   padding-top: 141px;
   padding-left: 39px;
   padding-right: 44px;
 }
+.testImg {
+  padding-bottom: 27px;
+  display: flex;
+  justify-content: center;
+}
 .answer {
-  height: 50px;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
   margin-bottom: 8px;
-}
-label {
-  height: 50px;
-  display: block;
+  background-color: rgba(242, 243, 243, 0.15);
   color: white;
-  margin-top: -28px;
-  margin-left: 70px;
-  text-transform: capitalize;
 }
-input {
-  border: 1px solid white;
-  margin-left: 30px;
+input[type="radio"] {
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 35px;
+  margin-right: 39px;
   width: 20px;
   height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  position: relative;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #2950c2;
+  border: 1px solid #272727;
+}
+
+.answer input:checked + label {
+  color: #272727;
+}
+.selected {
+  color: #272727;
+  background-color: #ffc700;
 }
 .testButton {
   margin: 0 auto;
@@ -104,5 +151,11 @@ input {
 }
 .testButton.active {
   background-color: orange;
+}
+.rey-button {
+  background: #dadada;
+}
+.orange-button {
+  background: #ffc700;
 }
 </style>
