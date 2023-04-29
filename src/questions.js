@@ -1,3 +1,6 @@
+import img1 from "@/components/icons/-2.png";
+import img2 from "@/components/icons/3.png";
+import img3 from "@/components/icons/2.png";
 const questions = [
   {
     id: 1,
@@ -98,6 +101,7 @@ const questions = [
   {
     id: 9,
     question: "Выберите правильную фигуру из четырёх пронумерованных.",
+    imgSrc: img1,
     options: [
       { id: "1", text: "1", value: "1" },
       { id: "2", text: "2", value: "2" },
@@ -124,6 +128,7 @@ const questions = [
   },
   {
     id: 11,
+    imgSrc: img2,
     question:
       "Какое определение, по-Вашему, больше подходит к этому геометрическому изображению: ",
     options: [
@@ -142,6 +147,7 @@ const questions = [
   },
   {
     id: 12,
+    imgSrc: img3,
     question: "Вставьте подходящее число ",
     options: [
       {
