@@ -29,8 +29,8 @@ export default {
 console.log(questions);
 </script>
 <template>
-  <div class="test">
-    <form @submit.prevent>
+  <form @submit.prevent class="test">
+    <div style="width: 100%">
       <h2 class="question">{{ currentQuestion.question }}</h2>
       <div class="testImg">
         <img
@@ -44,6 +44,7 @@ console.log(questions);
         v-for="(answer, index) in currentQuestion.options"
         :key="index"
         class="answer"
+        :style="{ color: answer.color }"
         :class="{ selected: selectedAnswer === answer }"
       >
         <input
@@ -55,18 +56,18 @@ console.log(questions);
         />
         {{ answer.text }}</label
       >
-      <button
-        @click="nextQuestion"
-        class="testButton uppercase"
-        :class="{
-          'grey-button': !selectedAnswer,
-          'orange-button': selectedAnswer,
-        }"
-      >
-        Далі
-      </button>
-    </form>
-  </div>
+    </div>
+    <button
+      @click="nextQuestion"
+      class="testButton uppercase"
+      :class="{
+        'grey-button': !selectedAnswer,
+        'orange-button': selectedAnswer,
+      }"
+    >
+      Далі
+    </button>
+  </form>
 </template>
 <style>
 .test {
@@ -77,12 +78,10 @@ console.log(questions);
   line-height: 26px;
   letter-spacing: 0.05em;
   color: white;
-}
-.question {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   text-align: center;
-  padding-top: 141px;
-  padding-left: 39px;
-  padding-right: 44px;
 }
 .testImg {
   padding-bottom: 27px;
@@ -143,14 +142,8 @@ input[type="radio"]:checked::before {
   line-height: 18px;
   letter-spacing: 0.1em;
   color: #8e8e8e;
-  position: fixed;
-  bottom: 25px;
-  left: 25%;
   background-color: #ccc;
   color: #fff;
-}
-.testButton.active {
-  background-color: orange;
 }
 .rey-button {
   background: #dadada;

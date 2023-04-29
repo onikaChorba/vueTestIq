@@ -1,6 +1,8 @@
 import img1 from "@/components/icons/-2.png";
 import img2 from "@/components/icons/3.png";
 import img3 from "@/components/icons/2.png";
+
+const grey = "#A8A8A8";
 const questions = [
   {
     id: 1,
@@ -75,7 +77,7 @@ const questions = [
     question:
       "Отдохните пару секунд, еще раз Выберите цвет, который сейчас наиболее Вам приятен:",
     options: [
-      { id: "1", text: "grey", value: "grey" },
+      { id: "1", text: grey, value: "grey" },
       { id: "2", text: "blue", value: "blue" },
       { id: "3", text: "green", value: "green" },
       { id: "4", text: "red", value: "red" },
