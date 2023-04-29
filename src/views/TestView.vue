@@ -7,6 +7,8 @@ export default {
       questions: questions,
       currentQuestionIndex: 0,
       selectedAnswer: "",
+      processing: false,
+      resultProcessed: false,
     };
   },
   computed: {
@@ -23,14 +25,48 @@ export default {
         alert("Будь ласка, оберіть відповідь!");
       }
     },
+    // submitAnswer(answer) {
+    //   this.selectedAnswer = answer;
+    //   this.processing = true;
+    //   setTimeout(() => {
+    //     this.processing = false;
+    //     this.resultProcessed = true;
+    //     this.currentQuestionIndex++;
+    //     if (this.currentQuestionIndex === this.questions.length) {
+    //       this.submitForm();
+    //     }
+    //   }, 1000);
+    // },
+    // async submitForm() {
+    //   this.processing = true;
+
+    //   try {
+    //     const result = await this.submitAnswers();
+    //     this.resultProcessed = true;
+
+    //     // Результат успішно оброблено, виконуємо необхідні дії з результатом
+    //     console.log(result);
+    //   } catch (error) {
+    //     // Виникла помилка під час обробки результату, виконуємо необхідні дії з помилкою
+    //     console.error(error);
+    //   } finally {
+    //     this.processing = false;
+    //   }
+    // },
   },
 };
 
 console.log(questions);
 </script>
 <template>
-  <div class="test">
-    <form @submit.prevent>
+  <form @submit.prevent="submitForm" class="test">
+    <div v-if="processing">
+      Обработка результатаЄ...
+      <div class="spinner"></div>
+    </div>
+    <div v-if="resultProcessed">Результат обработано!</div>
+
+    <div style="width: 100%">
       <h2 class="question">{{ currentQuestion.question }}</h2>
       <div class="testImg">
         <img
@@ -44,7 +80,11 @@ console.log(questions);
         v-for="(answer, index) in currentQuestion.options"
         :key="index"
         class="answer"
-        :class="{ selected: selectedAnswer === answer }"
+        :style="{ color: answer.color }"
+        :class="{
+          selected: selectedAnswer === answer,
+          [answer.value]: true,
+        }"
       >
         <input
           type="radio"
@@ -53,20 +93,20 @@ console.log(questions);
           :value="answer"
           v-model="selectedAnswer"
         />
-        {{ answer.text }}</label
+        <p style="margin: 15px">{{ answer.text }}</p></label
       >
-      <button
-        @click="nextQuestion"
-        class="testButton uppercase"
-        :class="{
-          'grey-button': !selectedAnswer,
-          'orange-button': selectedAnswer,
-        }"
-      >
-        Далі
-      </button>
-    </form>
-  </div>
+    </div>
+    <button
+      @click="nextQuestion"
+      class="testButton uppercase"
+      :class="{
+        'grey-button': !selectedAnswer,
+        'orange-button': selectedAnswer,
+      }"
+    >
+      Далі
+    </button>
+  </form>
 </template>
 <style>
 .test {
@@ -77,14 +117,13 @@ console.log(questions);
   line-height: 26px;
   letter-spacing: 0.05em;
   color: white;
-}
-.question {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   text-align: center;
-  padding-top: 141px;
-  padding-left: 39px;
-  padding-right: 44px;
 }
 .testImg {
+  padding-top: 27px;
   padding-bottom: 27px;
   display: flex;
   justify-content: center;
@@ -103,7 +142,7 @@ input[type="radio"] {
   outline: none;
   background-color: transparent;
   margin-left: 35px;
-  margin-right: 39px;
+  margin-right: 19px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -143,19 +182,63 @@ input[type="radio"]:checked::before {
   line-height: 18px;
   letter-spacing: 0.1em;
   color: #8e8e8e;
-  position: fixed;
-  bottom: 25px;
-  left: 25%;
   background-color: #ccc;
   color: #fff;
-}
-.testButton.active {
-  background-color: orange;
 }
 .rey-button {
   background: #dadada;
 }
 .orange-button {
   background: #ffc700;
+}
+.colorBlock {
+  width: 75px;
+  height: 75px;
+}
+.grey {
+  background-color: #a8a8a8;
+}
+.blue {
+  background-color: #0000a9;
+}
+.red {
+  background-color: #f60100;
+}
+
+.green {
+  background-color: #00a701;
+}
+
+.yellow {
+  background-color: #fdff19;
+}
+.brown {
+  background-color: #a95403;
+}
+.pink {
+  background-color: #850068;
+}
+.black {
+  background-color: black;
+}
+.lightGreen {
+  background-color: #46b2ac;
+}
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s ease-in-out infinite;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 </style>
