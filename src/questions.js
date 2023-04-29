@@ -2,7 +2,6 @@ import img1 from "@/components/icons/-2.png";
 import img2 from "@/components/icons/3.png";
 import img3 from "@/components/icons/2.png";
 
-const grey = "#A8A8A8";
 const questions = [
   {
     id: 1,
@@ -61,15 +60,15 @@ const questions = [
     id: 6,
     question: "Выберите цвет, который сейчас наиболее Вам приятен:",
     options: [
-      { id: "1", text: "grey", value: "grey" },
-      { id: "2", text: "blue", value: "blue" },
-      { id: "3", text: "green", value: "green" },
-      { id: "4", text: "red", value: "red" },
-      { id: "5", text: "yellow", value: "yellow" },
-      { id: "6", text: "brown", value: "brown" },
-      { id: "7", text: "pink", value: "pink" },
-      { id: "8", text: "light green", value: "light green" },
-      { id: "9", text: "black", value: "black" },
+      { id: "1", text: "", value: "grey" },
+      { id: "2", text: "", value: "blue" },
+      { id: "3", text: "", value: "green" },
+      { id: "4", text: "", value: "red" },
+      { id: "5", text: "", value: "yellow" },
+      { id: "6", text: "", value: "brown" },
+      { id: "7", text: "", value: "pink" },
+      { id: "8", text: "", value: "lightGreen" },
+      { id: "9", text: "", value: "black" },
     ],
   },
   {
@@ -77,15 +76,15 @@ const questions = [
     question:
       "Отдохните пару секунд, еще раз Выберите цвет, который сейчас наиболее Вам приятен:",
     options: [
-      { id: "1", text: grey, value: "grey" },
-      { id: "2", text: "blue", value: "blue" },
-      { id: "3", text: "green", value: "green" },
-      { id: "4", text: "red", value: "red" },
-      { id: "5", text: "yellow", value: "yellow" },
-      { id: "6", text: "brown", value: "brown" },
-      { id: "7", text: "pink", value: "pink" },
-      { id: "8", text: "light green", value: "light green" },
-      { id: "9", text: "black", value: "black" },
+      { id: "1", text: "", value: "grey" },
+      { id: "2", text: "", value: "blue" },
+      { id: "3", text: "", value: "green" },
+      { id: "4", text: "", value: "red" },
+      { id: "5", text: "", value: "yellow" },
+      { id: "6", text: "", value: "brown" },
+      { id: "7", text: "", value: "pink" },
+      { id: "8", text: "", value: "lightGreen" },
+      { id: "9", text: "", value: "black" },
     ],
   },
   {
@@ -177,6 +176,7 @@ const questions = [
   },
   {
     id: 13,
+    imgSrc: img3,
     question: "Вставьте подходящее число ",
     options: [
       {
