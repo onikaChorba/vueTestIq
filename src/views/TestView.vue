@@ -1,19 +1,30 @@
 <script>
 import questions from "../questions.js";
-
+import Spinner from "../components/Spinner.vue";
 export default {
   data() {
     return {
       questions: questions,
+      userAnswers: [],
       currentQuestionIndex: 0,
       selectedAnswer: "",
-      processing: false,
-      resultProcessed: false,
+      processingResults: false,
+      showResultProcessing: false,
     };
+  },
+  components: {
+    Spinner,
   },
   computed: {
     currentQuestion() {
       return this.questions[this.currentQuestionIndex];
+    },
+
+    isLastQuestion() {
+      return this.currentQuestionIndex === this.questions.length - 1;
+    },
+    submitButtonLabel() {
+      return this.isLastQuestion ? "отправить" : "Далее";
     },
   },
   methods: {
@@ -25,47 +36,41 @@ export default {
         alert("Будь ласка, оберіть відповідь!");
       }
     },
-    // submitAnswer(answer) {
-    //   this.selectedAnswer = answer;
-    //   this.processing = true;
-    //   setTimeout(() => {
-    //     this.processing = false;
-    //     this.resultProcessed = true;
-    //     this.currentQuestionIndex++;
-    //     if (this.currentQuestionIndex === this.questions.length) {
-    //       this.submitForm();
-    //     }
-    //   }, 1000);
-    // },
-    // async submitForm() {
-    //   this.processing = true;
+    saveAnswers() {
+      this.userAnswers[this.currentQuestionIndex] = this.selectedAnswer; // зберігаємо відповідь користувача
+      this.selectedAnswer = ""; // очищуємо вибрану відповідь
 
-    //   try {
-    //     const result = await this.submitAnswers();
-    //     this.resultProcessed = true;
+      if (this.currentQuestionIndex === this.questions.length - 1) {
+        // якщо це останнє питання
+        this.showResultProcessing = true; // відображаємо повідомлення про обробку результатів
+      } else {
+        this.currentQuestionIndex++; // переходимо до наступного питання
+      }
+    },
 
-    //     // Результат успішно оброблено, виконуємо необхідні дії з результатом
-    //     console.log(result);
-    //   } catch (error) {
-    //     // Виникла помилка під час обробки результату, виконуємо необхідні дії з помилкою
-    //     console.error(error);
-    //   } finally {
-    //     this.processing = false;
-    //   }
-    // },
+    submitForm() {
+      if (this.currentQuestionIndex < this.questions.length - 1) {
+        this.nextQuestion();
+      } else {
+        this.saveAnswers();
+        setTimeout(() => {
+          this.processingResults = true; // показуємо вікно обробки результату
+          setTimeout(() => {
+            this.processingResults = false;
+            this.showResult = true; // показуємо вікно з результатом
+          }, 5000); // після 5 секунд після відправки показуємо вікно з результатом
+        }, 2000); // затримка у 2 секунди перед показом вікна обробки результату
+      }
+
+      console.log(this.userAnswers);
+    },
   },
 };
 
 console.log(questions);
 </script>
 <template>
-  <form @submit.prevent="submitForm" class="test">
-    <div v-if="processing">
-      Обработка результатаЄ...
-      <div class="spinner"></div>
-    </div>
-    <div v-if="resultProcessed">Результат обработано!</div>
-
+  <form @submit.prevent="submitForm" class="test" v-if="!processingResults">
     <div style="width: 100%">
       <h2 class="question">{{ currentQuestion.question }}</h2>
       <div class="testImg">
@@ -96,19 +101,29 @@ console.log(questions);
         <p style="margin: 15px">{{ answer.text }}</p></label
       >
     </div>
+
     <button
-      @click="nextQuestion"
+      type="submit"
+      @click.prevent="submitForm"
       class="testButton uppercase"
       :class="{
         'grey-button': !selectedAnswer,
         'orange-button': selectedAnswer,
       }"
     >
-      Далі
+      {{ submitButtonLabel }}
     </button>
   </form>
+  <div class="checkingResult">
+    <p class="checkingResultText">Обработка результата...</p>
+    <Spinner />
+    <p class="checkingResultText2">
+      Определение стиля мышления........... ....
+      ...................................................
+    </p>
+  </div>
 </template>
-<style>
+<style scoped>
 .test {
   min-height: 100vh;
   background: url("../components/icons/rain_bk2.png");
@@ -224,21 +239,29 @@ input[type="radio"]:checked::before {
 .lightGreen {
   background-color: #46b2ac;
 }
-.spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top-color: #fff;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  animation: spin 1s ease-in-out infinite;
-  margin-left: 8px;
-  display: inline-block;
-}
 
-@keyframes spin {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+.checkingResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "PT Serif";
+  background: url("../components/icons/rain_bk2.png");
+  color: white;
+}
+.checkingResultText {
+  letter-spacing: 0.05em;
+  font-size: 23px;
+  line-height: 30px;
+  width: 90%;
+  text-align: center;
+  padding-bottom: 33px;
+  padding-top: 49px;
+}
+.checkingResultText2 {
+  padding-top: 33px;
+  width: 85%;
+  line-height: 19px;
+  letter-spacing: 0.05em;
 }
 </style>
