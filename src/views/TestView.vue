@@ -16,6 +16,13 @@ export default {
     currentQuestion() {
       return this.questions[this.currentQuestionIndex];
     },
+
+    isLastQuestion() {
+      return this.currentQuestionIndex === this.questions.length - 1;
+    },
+    submitButtonLabel() {
+      return this.isLastQuestion ? "отправить" : "Далее";
+    },
   },
   methods: {
     nextQuestion() {
@@ -84,7 +91,7 @@ console.log(questions);
         'orange-button': selectedAnswer,
       }"
     >
-      Далі
+      {{ submitButtonLabel }}
     </button>
   </form>
 </template>
