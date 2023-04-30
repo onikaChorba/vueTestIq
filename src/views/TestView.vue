@@ -5,6 +5,7 @@ export default {
   data() {
     return {
       questions: questions,
+      userAnswers: [],
       currentQuestionIndex: 0,
       selectedAnswer: "",
       processing: false,
@@ -25,34 +26,11 @@ export default {
         alert("Будь ласка, оберіть відповідь!");
       }
     },
-    // submitAnswer(answer) {
-    //   this.selectedAnswer = answer;
-    //   this.processing = true;
-    //   setTimeout(() => {
-    //     this.processing = false;
-    //     this.resultProcessed = true;
-    //     this.currentQuestionIndex++;
-    //     if (this.currentQuestionIndex === this.questions.length) {
-    //       this.submitForm();
-    //     }
-    //   }, 1000);
-    // },
-    // async submitForm() {
-    //   this.processing = true;
-
-    //   try {
-    //     const result = await this.submitAnswers();
-    //     this.resultProcessed = true;
-
-    //     // Результат успішно оброблено, виконуємо необхідні дії з результатом
-    //     console.log(result);
-    //   } catch (error) {
-    //     // Виникла помилка під час обробки результату, виконуємо необхідні дії з помилкою
-    //     console.error(error);
-    //   } finally {
-    //     this.processing = false;
-    //   }
-    // },
+    submitForm() {
+      this.userAnswers.push(this.selectedAnswer);
+      console.log(this.userAnswers);
+      // додатковий код для обробки відправки форми
+    },
   },
 };
 
@@ -60,11 +38,11 @@ console.log(questions);
 </script>
 <template>
   <form @submit.prevent="submitForm" class="test">
-    <div v-if="processing">
+    <!-- <div v-if="processing">
       Обработка результатаЄ...
       <div class="spinner"></div>
     </div>
-    <div v-if="resultProcessed">Результат обработано!</div>
+    <div v-if="resultProcessed">Результат обработано!</div> -->
 
     <div style="width: 100%">
       <h2 class="question">{{ currentQuestion.question }}</h2>
@@ -97,6 +75,8 @@ console.log(questions);
       >
     </div>
     <button
+      type="submit"
+      @click.prevent="submitForm"
       @click="nextQuestion"
       class="testButton uppercase"
       :class="{
