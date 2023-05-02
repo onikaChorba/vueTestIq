@@ -69,7 +69,7 @@ export default {
 console.log(questions);
 </script>
 <template>
-  <!-- <form
+  <form
     @submit.prevent="submitForm"
     class="test"
     v-if="!processingResults && !showResult"
@@ -124,11 +124,10 @@ console.log(questions);
       Определение стиля мышления........... ....
       ...................................................
     </p>
-  </div> -->
-  <!-- <div v-else-if="showResult" class="test">
+  </div>
+  <div v-else-if="showResult" class="test">
     <ShowResult />
-  </div> -->
-  <ShowResult />
+  </div>
 </template>
 <style scoped>
 .test {
