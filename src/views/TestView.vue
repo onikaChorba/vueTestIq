@@ -70,7 +70,7 @@ export default {
 console.log(questions);
 </script>
 <template>
-  <form @submit.prevent="submitForm" class="test" v-if="!processingResults">
+  <!-- <form @submit.prevent="submitForm" class="test" v-if="!processingResults">
     <div style="width: 100%">
       <h2 class="question">{{ currentQuestion.question }}</h2>
       <div class="testImg">
@@ -113,7 +113,7 @@ console.log(questions);
     >
       {{ submitButtonLabel }}
     </button>
-  </form>
+  </form> -->
   <div class="checkingResult">
     <p class="checkingResultText">Обработка результата...</p>
     <Spinner />

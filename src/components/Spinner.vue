@@ -19,92 +19,92 @@
   justify-content: center;
   align-items: center;
   height: 50px;
+  padding-top: 200px;
+  animation: spin 2s linear infinite;
 }
-
-.spinner-circle {
-  background: green;
+.spinner .spinner-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px);
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  margin: 0 3px;
-  animation: spinner-animation 1s ease-in-out infinite;
+  background-color: green;
 }
 
-.spinner-circle:nth-child(1) {
+.spinner .spinner-circle:nth-child(1) {
   width: 3px;
   height: 3px;
-  animation-duration: 1.1s;
+  transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(2) {
+.spinner .spinner-circle:nth-child(2) {
   width: 5px;
   height: 5px;
-  animation-duration: 1.2s;
+  transform: translate(-50%, -50%) rotate(32.7deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(3) {
+.spinner .spinner-circle:nth-child(3) {
   width: 7px;
   height: 7px;
-  animation-duration: 1.3s;
+  transform: translate(-50%, -50%) rotate(65.4deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(4) {
+.spinner .spinner-circle:nth-child(4) {
   width: 9px;
   height: 9px;
-  animation-duration: 1.4s;
+  transform: translate(-50%, -50%) rotate(98.1deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(5) {
+.spinner .spinner-circle:nth-child(5) {
   width: 11px;
   height: 11px;
-  animation-duration: 1.5s;
+  transform: translate(-50%, -50%) rotate(130.8deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(6) {
+.spinner .spinner-circle:nth-child(6) {
   width: 13px;
   height: 13px;
-  animation-duration: 1.6s;
+  transform: translate(-50%, -50%) rotate(163.5deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(7) {
+.spinner .spinner-circle:nth-child(7) {
   width: 15px;
   height: 15px;
-  animation-duration: 1.7s;
+  transform: translate(-50%, -50%) rotate(196.2deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(8) {
+.spinner .spinner-circle:nth-child(8) {
   width: 13px;
   height: 13px;
-  animation-duration: 1.8s;
+  transform: translate(-50%, -50%) rotate(228.9deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(9) {
+.spinner .spinner-circle:nth-child(9) {
   width: 11px;
   height: 11px;
-  animation-duration: 1.9s;
+  transform: translate(-50%, -50%) rotate(261.6deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(10) {
+.spinner .spinner-circle:nth-child(10) {
   width: 9px;
   height: 9px;
-  animation-duration: 2s;
+  transform: translate(-50%, -50%) rotate(294.3deg) translate(0, -50px);
 }
 
-.spinner-circle:nth-child(11) {
+.spinner .spinner-circle:nth-child(11) {
   width: 7px;
   height: 7px;
-  animation-duration: 2.1s;
+  transform: translate(-50%, -50%) rotate(327deg) translate(0, -50px);
 }
 
-@keyframes spinner-animation {
+@keyframes spin {
   0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.5);
+    transform: rotate(0deg);
   }
   100% {
-    transform: scale(1);
+    transform: rotate(360deg);
   }
 }
 </style>
