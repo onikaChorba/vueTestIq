@@ -1,6 +1,7 @@
 <script>
 import questions from "../questions.js";
 import Spinner from "../components/Spinner.vue";
+import ShowResult from "../components/ShowResult.vue";
 export default {
   data() {
     return {
@@ -10,6 +11,7 @@ export default {
       selectedAnswer: "",
       processingResults: false,
       showResultProcessing: false,
+      showResult: false,
     };
   },
   components: {
@@ -37,14 +39,12 @@ export default {
       }
     },
     saveAnswers() {
-      this.userAnswers[this.currentQuestionIndex] = this.selectedAnswer; // зберігаємо відповідь користувача
-      this.selectedAnswer = ""; // очищуємо вибрану відповідь
+      this.userAnswers[this.currentQuestionIndex] = this.selectedAnswer;
 
       if (this.currentQuestionIndex === this.questions.length - 1) {
-        // якщо це останнє питання
-        this.showResultProcessing = true; // відображаємо повідомлення про обробку результатів
+        this.showResultProcessing = true;
       } else {
-        this.currentQuestionIndex++; // переходимо до наступного питання
+        this.currentQuestionIndex++;
       }
     },
 
@@ -54,14 +54,13 @@ export default {
       } else {
         this.saveAnswers();
         setTimeout(() => {
-          this.processingResults = true; // показуємо вікно обробки результату
+          this.processingResults = true;
           setTimeout(() => {
             this.processingResults = false;
-            this.showResult = true; // показуємо вікно з результатом
-          }, 5000); // після 5 секунд після відправки показуємо вікно з результатом
-        }, 2000); // затримка у 2 секунди перед показом вікна обробки результату
+            this.showResult = true;
+          }, 5000);
+        }, 2000);
       }
-
       console.log(this.userAnswers);
     },
   },
@@ -70,7 +69,11 @@ export default {
 console.log(questions);
 </script>
 <template>
-  <!-- <form @submit.prevent="submitForm" class="test" v-if="!processingResults">
+  <!-- <form
+    @submit.prevent="submitForm"
+    class="test"
+    v-if="!processingResults && !showResult"
+  >
     <div style="width: 100%">
       <h2 class="question">{{ currentQuestion.question }}</h2>
       <div class="testImg">
@@ -113,15 +116,19 @@ console.log(questions);
     >
       {{ submitButtonLabel }}
     </button>
-  </form> -->
-  <div class="checkingResult">
+  </form>
+  <div v-else-if="processingResults" class="checkingResult">
     <p class="checkingResultText">Обработка результата...</p>
     <Spinner />
     <p class="checkingResultText2">
       Определение стиля мышления........... ....
       ...................................................
     </p>
-  </div>
+  </div> -->
+  <!-- <div v-else-if="showResult" class="test">
+    <ShowResult />
+  </div> -->
+  <ShowResult />
 </template>
 <style scoped>
 .test {
