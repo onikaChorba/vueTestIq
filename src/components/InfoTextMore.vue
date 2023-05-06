@@ -19,6 +19,7 @@
 </template>
 <style scoped>
 .infoTestMoreBlock {
+  min-height: 50vh;
   background: url("../components/icons/rain_bk2.png");
   color: #ffffff;
   font-family: "Merriweather";
