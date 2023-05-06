@@ -1,28 +1,35 @@
 <template>
   <div class="infoTestMoreBlock">
-    <p class="infoText">Прохождение теста займет у вас не более <span>12 минут</span>, а его результаты вы сможете <span>использовать всю жизнь.</span> 
+    <p class="infoText">
+      Прохождение теста займет у вас не более <span>12 минут</span>, а его
+      результаты вы сможете <span>использовать всю жизнь.</span>
     </p>
     <p class="infoTextBlock">
-      Профессиональная интерпретация и детально <b>проработанные рекомендации </b>позволят вам качественно <b>изменить все аспекты своей жизни:</b> от финансового до любовного.
+      Профессиональная интерпретация и детально
+      <b>проработанные рекомендации </b>позволят вам качественно
+      <b>изменить все аспекты своей жизни:</b> от финансового до любовного.
     </p>
-    <button class="buttonMain infoButton"> <p class="buttonMainText infoButtonText uppercase">пpойти тест</p></button>
-    <p class="bottomText"> &#169; 2019</p>
+    <RouterLink to="/test" class="navLink">
+      <button class="buttonMain infoButton">
+        <p class="buttonMainText infoButtonText uppercase">пpойти тест</p>
+      </button></RouterLink
+    >
+    <p class="bottomText">&#169; 2019</p>
   </div>
-
 </template>
 <style scoped>
-.infoTestMoreBlock{
+.infoTestMoreBlock {
   background: url("../components/icons/rain_bk2.png");
-  color: #FFFFFF;
-  font-family: 'Merriweather';
+  color: #ffffff;
+  font-family: "Merriweather";
 }
-.infoText{
+.infoText {
   font-size: 15px;
   line-height: 20px;
   letter-spacing: 0.05em;
   padding: 56px 14px 51px 14px;
 }
-.infoTextBlock{
+.infoTextBlock {
   background: rgba(243, 243, 242, 0.8);
   border-radius: 20px;
   margin: 0px 12px 33px 12px;
@@ -32,19 +39,19 @@
   letter-spacing: 0.05em;
   color: #181818;
 }
-.infoButton{
-  border: 1px solid #FFFFFF;
+.infoButton {
+  border: 1px solid #ffffff;
   border-radius: 50px;
   background: transparent;
   display: block;
   margin: 0 auto;
   margin-bottom: 63px;
 }
-.infoButtonText{
+.infoButtonText {
   color: white;
 }
-.bottomText{
-  font-family: 'Roboto';
+.bottomText {
+  font-family: "Roboto";
   font-size: 10px;
   line-height: 23px;
   text-align: center;

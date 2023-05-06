@@ -1,10 +1,13 @@
+<script>
+import InfoText from "../components/InfoText.vue";
+import InfoTextMore from "../components/InfoTextMore.vue";
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main class="about">
+    <InfoText />
+    <InfoTextMore />
+  </main>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-}
-</style>
+<style scoped></style>
