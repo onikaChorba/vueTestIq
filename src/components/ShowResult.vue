@@ -60,6 +60,10 @@ export default {
 </template>
 <style scoped>
 .result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   background: url("../components/icons/rain_bk2.png");
   font-family: "PT Serif";
@@ -129,6 +133,7 @@ export default {
   background: #eb1b00;
   border-radius: 5px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 25px;
   margin: 10px auto;

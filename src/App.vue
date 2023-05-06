@@ -20,30 +20,40 @@ function changeHeaderStyle() {
 </script>
 
 <template>
-  <header :class="headerClass">
-    <div :class="menuButtonClass">
-      <button @click="changeHeaderStyle">
-        <img
-          v-if="showMenu"
-          src="@/components/icons/icon-5.png"
-          alt="close"
-          class="close"
-        />
-        <img v-else src="@/components/icons/menu.png" alt="menu" class="menu" />
-      </button>
-    </div>
-    <nav :class="navBarClass">
-      <RouterLink to="/" class="navLink">Главная</RouterLink>
-      <RouterLink to="/about" class="navLink">Информация о тесте</RouterLink>
-      <RouterLink to="/test" class="navLink">пройти тест</RouterLink>
-    </nav>
-  </header>
-  <RouterView />
+  <div>
+    <header :class="headerClass">
+      <div :class="menuButtonClass">
+        <button @click="changeHeaderStyle">
+          <img
+            v-if="showMenu"
+            src="@/components/icons/icon-5.png"
+            alt="close"
+            class="close"
+          />
+          <img
+            v-else
+            src="@/components/icons/menu.png"
+            alt="menu"
+            class="menu"
+          />
+        </button>
+      </div>
+      <nav :class="navBarClass">
+        <RouterLink to="/" class="navLink">Главная</RouterLink>
+        <RouterLink to="/about" class="navLink">Информация о тесте</RouterLink>
+        <RouterLink to="/test" class="navLink">пройти тест</RouterLink>
+      </nav>
+    </header>
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
 .header {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
   min-height: 100vh;
   background: #181818;
   display: block;

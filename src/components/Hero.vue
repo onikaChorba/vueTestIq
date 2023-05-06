@@ -1,18 +1,30 @@
 <template>
   <div class="hero">
     <h2 class="heroTitle uppercase">Пройдите точный и быстрый</h2>
-    <h1 class="heroTitleMain uppercase"><span>тест на <br> определение IQ   </span></h1>
-    <img src="../components/icons/rain_bk3.png" class="brain" alt="brain"/>
-    <button class="buttonMain"> <p class="buttonMainText uppercase">ПРойти тест</p></button>
-    <p class="heroText uppercase"><span>и получите рекомендации 
-    по развитию своего интеллекта </span>
-    <br>
-    и улучшению финансового благосостояния и личной жизни</p>
-    <button class="heroButton uppercase">
-      <img src="../components/icons/Group 3.png" alt="arrow" class="arrow"/>
-      подробнее
-    </button>
-      </div>
+    <h1 class="heroTitleMain uppercase">
+      <span
+        >тест на <br />
+        определение IQ
+      </span>
+    </h1>
+    <img src="../components/icons/rain_bk3.png" class="brain" alt="brain" />
+    <RouterLink to="/test" class="navLink">
+      <button class="buttonMain">
+        <p class="buttonMainText uppercase">ПРойти тест</p>
+      </button></RouterLink
+    >
+    <p class="heroText uppercase">
+      <span>и получите рекомендации по развитию своего интеллекта </span>
+      <br />
+      и улучшению финансового благосостояния и личной жизни
+    </p>
+    <RouterLink to="/about" class="navLink">
+      <button class="heroButton uppercase">
+        <img src="../components/icons/Group 3.png" alt="arrow" class="arrow" />
+        подробнее
+      </button>
+    </RouterLink>
+  </div>
 </template>
 <style scoped>
 .hero {
@@ -24,7 +36,7 @@
   text-align: center;
 }
 .heroTitle {
-  font-family: 'PT Serif';
+  font-family: "PT Serif";
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0.05em;
@@ -32,7 +44,7 @@
   color: white;
 }
 .heroTitleMain {
-  font-family: 'Yeseva One';
+  font-family: "Yeseva One";
   font-size: 30px;
   line-height: 35px;
   letter-spacing: 0.03em;
@@ -46,7 +58,7 @@
 }
 
 .heroText {
-  font-family: 'PT Serif';
+  font-family: "PT Serif";
   font-style: normal;
   font-weight: 700;
   font-size: 15px;
@@ -63,7 +75,7 @@
   align-items: center;
   padding-bottom: 11px;
   color: white;
-  font-family: 'PT Serif';
+  font-family: "PT Serif";
   font-style: normal;
   font-weight: 400;
   font-size: 8px;
