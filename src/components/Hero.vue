@@ -20,7 +20,7 @@
     </p>
     <RouterLink to="/about" class="navLink">
       <button class="heroButton uppercase">
-        <img src="../components/icons/Group 3.png" alt="arrow" class="arrow" />
+        <img src="../components/icons/Group3.png" alt="arrow" class="arrow" />
         подробнее
       </button>
     </RouterLink>
