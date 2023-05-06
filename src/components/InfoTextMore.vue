@@ -58,6 +58,8 @@
   text-align: center;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.5);
-  padding-bottom: 13px;
+  position: absolute;
+  bottom: 13px;
+  left: 48%;
 }
 </style>
