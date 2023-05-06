@@ -24,6 +24,7 @@
   letter-spacing: 0.05em;
   color: #272727;
   padding: 38px 11px;
+  min-height: 30vh;
 }
 .infoImg {
   display: block;
