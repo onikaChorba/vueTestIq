@@ -10,4 +10,8 @@ import InfoTextMore from "../components/InfoTextMore.vue";
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.about {
+  min-height: 100hv;
+}
+</style>
