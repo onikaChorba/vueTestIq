@@ -1,40 +1,34 @@
-# vue-testIq
+# 👩‍💻 Vue IQ Test Website
 
-This template should help get you started developing with Vue 3 in Vite.
+This website is a Vue-based application that includes a homepage, a test page, and a form with questions to determine the IQ level.
 
-## Recommended IDE Setup
+## 🛠️ Description of functionality
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+The website includes three main pages:
 
-## Type Support for `.vue` Imports in TS
+### Homepage
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+The homepage includes general information about the IQ test and a button to start the test.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### About
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+The test information page has detailed information about the IQ test.
 
-## Customize configuration
+### Test Page
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+The test page includes a set of questions to determine the IQ level. The questions are presented one at a time, and the user must select an answer before proceeding to the next question.
 
-## Project Setup
+### Results Page
 
-```sh
-npm install
-```
+The results page displays the IQ level based on the user's answers to the questions. The page also includes a timer that counts down from 10 minutes.
 
-### Compile and Hot-Reload for Development
+## Project structure
 
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+    */public - external resources that will be available on the website
+    */src
+        */assets - resources for display (images, fonts, etc.)
+        */components - Vue components used on pages
+        */router - routing settings between pages
+        */views - components that are responsible for displaying pages
+    *App.vue is the main component that connects other components and is responsible for rendering pages
+    *main.js is the file that initializes Vue and sets the main components and other settings
